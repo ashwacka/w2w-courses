@@ -1,0 +1,79 @@
+.container {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1a365d;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0 0 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #e6f2ff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  text-decoration: none;
+  border-color: #0a7ea4;
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a365d;
+  margin: 0 0 4px;
+}
+
+.cardTagline {
+  font-size: 14px;
+  color: #4a5568;
+  margin: 0 0 8px;
+}
+
+.cardMeta {
+  font-size: 13px;
+  color: #0a7ea4;
+  margin: 0 0 12px;
+}
+
+.cardLink {
+  font-size: 14px;
+  color: #0a7ea4;
+  font-weight: 600;
+}
