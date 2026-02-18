@@ -1,0 +1,14 @@
+/**
+ * Supabase client for Write2Win.
+ * Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env to enable.
+ */
+
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+
+const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+
+export const supabase: SupabaseClient | null =
+  url && anonKey ? createClient(url, anonKey) : null;
+
+export const isSupabaseConfigured = (): boolean => !!supabase;

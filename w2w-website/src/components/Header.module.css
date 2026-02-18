@@ -57,3 +57,19 @@
   color: #fff;
   font-weight: 600;
 }
+
+.navItemButton {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.navItemButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}

@@ -1,9 +1,20 @@
 import { Link } from 'react-router-dom';
-import { getFeaturedCourses } from '../courses';
+import { useCoursesList } from '../hooks/useCoursesList';
+import { useCountUp } from '../hooks/useCountUp';
 import styles from './Home.module.css';
 
+function formatStat(value: number, suffix = '') {
+  if (value >= 1000) return value.toLocaleString() + suffix;
+  return String(value) + suffix;
+}
+
 export function Home() {
-  const featured = getFeaturedCourses();
+  const { courses } = useCoursesList();
+  const featured = courses.slice(0, 3);
+  const students = useCountUp(1200);
+  const programs = useCountUp(9);
+  const teachers = useCountUp(9);
+  const centers = useCountUp(7);
 
   return (
     <>
@@ -22,19 +33,19 @@ export function Home() {
       <section className={styles.stats}>
         <div className={styles.statsInner}>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>1,200+</span>
+            <span className={styles.statNumber}>{formatStat(students, '+')}</span>
             <span className={styles.statLabel}>Happy students</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>9</span>
+            <span className={styles.statNumber}>{formatStat(programs)}</span>
             <span className={styles.statLabel}>Programs</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>9</span>
+            <span className={styles.statNumber}>{formatStat(teachers)}</span>
             <span className={styles.statLabel}>Qualified teachers</span>
           </div>
           <div className={styles.stat}>
-            <span className={styles.statNumber}>7</span>
+            <span className={styles.statNumber}>{formatStat(centers)}</span>
             <span className={styles.statLabel}>Centers</span>
           </div>
         </div>
@@ -78,7 +89,7 @@ export function Home() {
             <Link key={course.id} to={`/course/${course.id}`} className={styles.courseCard}>
               <div className={styles.courseCardIcon}>✒️</div>
               <h3 className={styles.courseCardTitle}>{course.title}</h3>
-              <p className={styles.courseCardTagline}>{course.tagline}</p>
+              <p className={styles.courseCardTagline}>{course.tagline ?? course.description}</p>
               <span className={styles.courseCardLink}>View course →</span>
             </Link>
           ))}
